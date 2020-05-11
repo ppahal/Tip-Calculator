@@ -2,7 +2,7 @@
 //  Tip_CalculatorUITests.swift
 //  Tip CalculatorUITests
 //
-//  Created by Marco Antonio Serpas on 1/22/20.
+//  Created by Priya Pahal on 1/22/20.
 //  Copyright © 2020 Codepath. All rights reserved.
 //
 

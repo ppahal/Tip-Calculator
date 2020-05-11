@@ -30,7 +30,14 @@ class SettingsViewController: UIViewController {
         tipField1.text = "\(integer_t(tip1*100))"
         tipField2.text = "\(integer_t(tip2*100))"
         tipField3.text = "\(integer_t(tip3*100))"
+        tipField1.keyboardType = UIKeyboardType.decimalPad
+        tipField2.keyboardType = UIKeyboardType.decimalPad
+        tipField3.keyboardType = UIKeyboardType.decimalPad
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tipField1.becomeFirstResponder()
     }
     
 

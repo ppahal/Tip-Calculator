@@ -104,11 +104,11 @@
 				EACD1D4623D9329D00ECCDD5 /* AppDelegate.swift */,
 				EACD1D4823D9329D00ECCDD5 /* SceneDelegate.swift */,
 				EACD1D4A23D9329D00ECCDD5 /* ViewController.swift */,
+				512657432468B62B003367FE /* SettingsViewController.swift */,
 				EACD1D4C23D9329D00ECCDD5 /* Main.storyboard */,
 				EACD1D4F23D932A700ECCDD5 /* Assets.xcassets */,
 				EACD1D5123D932A700ECCDD5 /* LaunchScreen.storyboard */,
 				EACD1D5423D932A700ECCDD5 /* Info.plist */,
-				512657432468B62B003367FE /* SettingsViewController.swift */,
 			);
 			path = "Tip Calculator";
 			sourceTree = "<group>";
