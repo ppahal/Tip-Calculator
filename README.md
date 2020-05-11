@@ -13,7 +13,7 @@ The following **required** functionality is complete:
 * [X] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 
 The following **optional** features are implemented:
-* [ ] Settings page to change the default tip percentage.
+* [X] Settings page to change the default tip percentage.
 * [ ] UI animations
 * [ ] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
@@ -36,6 +36,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Describe any challenges encountered while building the app.
 I think the hardest part was just set up and downloading the software. Additionally, the walkthrough was not up to date with
 current Swift software. I figured it out with the help of one of the tutors.
+I think now the hardest part is just exploring the parts of the software that I am not the most comfortable with, but it isn't too hard to find the answers to the problems I am having now that I understand how everything works better.
 
 ## License
 
