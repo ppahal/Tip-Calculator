@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         tip2 = userDefaults.double(forKey: "tip2")
         tip3 = userDefaults.double(forKey: "tip3")
         calculateTip((Any).self)
+       // NotificationCenter.default.addObserver(self, selector: #selector(billField.textDidChangeNotification), name: NSNotification.Name.textDidChangeNotification, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +54,7 @@ class ViewController: UIViewController {
             let currentDate = Date()
             let time = currentDate.timeIntervalSince(previousDate)
             if(time <= 600){
-                billField.text=billValue
+                billField.text = billValue
             }
         }
     }
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let userDefaults = UserDefaults.standard
-        userDefaults.set(billField.text, forKey: "Bill")
+        //userDefaults.set(billField.text, forKey: "Bill")
         userDefaults.set(Date(), forKey: "Last Date")
     }
     
@@ -107,4 +108,3 @@ class ViewController: UIViewController {
     }
     
 }
-
