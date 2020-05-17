@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.billField.becomeFirstResponder()
         locale = NSLocale.autoupdatingCurrent
-        let exitDate = UserDefaults.standard.object(forKey: "exitDate") as? Date
+        //let exitDate = UserDefaults.standard.object(forKey: "exitDate") as? Date
         //print("\(exitDate)")
      /*   if(exitDate?.addingTimeInterval(10*60) ?? Date.init() < Date.init()){
             print("IN")
@@ -62,7 +62,9 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(Date(), forKey:"exitDate")*/
     }
     
-    @IBAction func unwindToTC(_ sender: UIStoryboardSegue){}
+    @IBAction func unwindToTC(_ sender: UIStoryboardSegue){
+        calculateTip((Any).self)
+    }
     
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
