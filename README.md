@@ -25,6 +25,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/2L2iV9oFOA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+<img src='http://g.recordit.co/uUMAsDUopZ.gif' title='Video Walkthrough2' width='' alt='Video Walkthrough2' />
 ## Notes
 
 Describe any challenges encountered while building the app.
