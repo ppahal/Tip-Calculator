@@ -31,8 +31,11 @@ class SettingsViewController: UIViewController {
         tipField2.text = "\(integer_t(tip2*100))"
         tipField3.text = "\(integer_t(tip3*100))"
         tipField1.keyboardType = UIKeyboardType.decimalPad
+        tipField1.keyboardAppearance = UIKeyboardAppearance.dark
         tipField2.keyboardType = UIKeyboardType.decimalPad
+        tipField2.keyboardAppearance = UIKeyboardAppearance.dark
         tipField3.keyboardType = UIKeyboardType.decimalPad
+        tipField3.keyboardAppearance = UIKeyboardAppearance.dark
         // Do any additional setup after loading the view.
     }
     

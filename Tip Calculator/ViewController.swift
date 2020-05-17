@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         billField.keyboardType = UIKeyboardType.decimalPad
+        billField.keyboardAppearance = UIKeyboardAppearance.dark
         // Do any additional setup after loading the view.
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in //self.trayView.center = self.trayDown }, completion: nil)
         }, completion: nil)
