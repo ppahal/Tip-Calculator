@@ -26,43 +26,49 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in //self.trayView.center = self.trayDown }, completion: nil)
         }, completion: nil)
+        let userDefaults = UserDefaults.standard
+        tip1 = userDefaults.double(forKey: "tip1")
+        tip2 = userDefaults.double(forKey: "tip2")
+        tip3 = userDefaults.double(forKey: "tip3")
+        calculateTip((Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let settingsVC = segue.destination as! SettingsViewController
+        //Initialize Tips
         settingsVC.tip1 = tip1
         settingsVC.tip2 = tip2
         settingsVC.tip3 = tip3
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.billField.becomeFirstResponder()
         locale = NSLocale.autoupdatingCurrent
-        //let exitDate = UserDefaults.standard.object(forKey: "exitDate") as? Date
-        //print("\(exitDate)")
-     /*   if(exitDate?.addingTimeInterval(10*60) ?? Date.init() < Date.init()){
-            print("IN")
-             NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: UITextField.textDidChangeNotification, object: nil)        }
-    //    NotificationCenter.removeObserver(_:)*/
-    }
-    
- /*   @objc func textChanged(_ notification: Notification){
-        print("HERE")
-        let data = notification.userInfo as! [String : Int]
-        for key in data.keys{
-            billField.text = key
-            print(key)
+        let userDefaults = UserDefaults.standard
+        if(userDefaults.object(forKey: "Last Date") != nil){
+            let previousDate = userDefaults.object(forKey: "Last Date") as! Date
+            let billValue = userDefaults.object(forKey: "Bill") as! String
+            let currentDate = Date()
+            let time = currentDate.timeIntervalSince(previousDate)
+            if(time <= 600){
+                billField.text=billValue
+            }
         }
     }
-   */
-    override func viewDidDisappear(_ animated: Bool) {
-     /*   let bill = (billField.text ?? "") as String
-        let value = [bill : 0] as [String : Int]
-        NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: billField, userInfo: value)
-        UserDefaults.standard.set(Date(), forKey:"exitDate")*/
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(billField.text, forKey: "Bill")
+        userDefaults.set(Date(), forKey: "Last Date")
     }
     
     @IBAction func unwindToTC(_ sender: UIStoryboardSegue){
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(tip1, forKey: "tip1")
+        userDefaults.set(tip2, forKey: "tip2")
+        userDefaults.set(tip3, forKey: "tip3")
         calculateTip((Any).self)
     }
     
@@ -78,6 +84,7 @@ class ViewController: UIViewController {
         format.numberStyle = .currency
         format.currencyDecimalSeparator = locale.decimalSeparator
         format.currencyGroupingSeparator = locale.groupingSeparator
+        
         // Get
         let bill = Double(billField.text!) ?? 0
         
@@ -86,11 +93,13 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let tipNS = tip as NSNumber
         let total = (bill + tip) as NSNumber
+        
         // Update
         tipControl.setTitle("\(integer_t(tip1*100))%", forSegmentAt: 0)
         tipControl.setTitle("\(integer_t(tip2*100))%", forSegmentAt: 1)
         tipControl.setTitle("\(integer_t(tip3*100))%", forSegmentAt: 2)
         
+        //Format & Label
         tipLabel.text = format.string(from: tipNS)
         totalLabel.text = format.string(from: total)
         
